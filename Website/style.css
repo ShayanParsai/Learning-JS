@@ -3,6 +3,12 @@
     text-align: center;
     font-size: 40px;
 }
+
+#threebuttonsdiv {
+    display: none;
+    text-align: center;
+}
+
 #increasebutton {
     font-size: 25px;
 }
@@ -14,6 +20,10 @@
 }
 #welcometitle {
     font-size: 44px;
+    display: block;
+    text-align: center;
+}
+#usernamediv {
     display: block;
     text-align: center;
 }
