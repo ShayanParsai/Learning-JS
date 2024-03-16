@@ -1,0 +1,14 @@
+#daystraveling {
+    display: block;
+    text-align: center;
+    font-size: 44px;
+}
+#increasebutton {
+    font-size: 25px;
+}
+#decreasebutton {
+    font-size: 25px;
+}
+#resetbutton {
+    font-size: 25px;
+}
