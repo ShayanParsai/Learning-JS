@@ -1,7 +1,7 @@
 #daystraveling {
     display: block;
     text-align: center;
-    font-size: 44px;
+    font-size: 40px;
 }
 #increasebutton {
     font-size: 25px;
@@ -11,4 +11,9 @@
 }
 #resetbutton {
     font-size: 25px;
+}
+#welcometitle {
+    font-size: 44px;
+    display: block;
+    text-align: center;
 }
