@@ -14,8 +14,8 @@ async function fetchPrice(url, exchange) {
             return parseFloat(data.last);
         } else if (exchange === 'coinbase') {
             return parseFloat(data.data.amount);
-        } else if (exchange === 'cex') {
-            return parseFloat(data.lprice);
+        } else if (exchange === 'bybit') {
+            return parseFloat(data.result[0].last_price);
         }
     } catch (error) {
         console.error('Error fetching price from', exchange, error);
@@ -25,103 +25,89 @@ async function fetchPrice(url, exchange) {
 // All the diffrent pairs, contains the URLs for API//----------------------------------------
 async function updatePricesofbtc() {
     const binanceUrl = 'https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT';
-    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=XBTUSD';
-    const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/btcusd/';
-    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/BTC-USD/spot';
-    const cexUrl = 'https://cex.io/api/last_price/BTC/USD';
+    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=XBTUSDT';
+    const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/btcusdt/';
+    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/BTC-USDT/spot';
+    const bybitUrl = 'https://api.bybit.com/v2/public/tickers?symbol=BTCUSDT';
 
     const binancePrice = await fetchPrice(binanceUrl, 'binance');
     const krakenPrice = await fetchPrice(krakenUrl, 'kraken');
     const bitstampPrice = await fetchPrice(bitstampUrl, 'bitstamp');
     const coinbasePrice = await fetchPrice(coinbaseUrl, 'coinbase');
-    const cexPrice = await fetchPrice(cexUrl, 'cex');
+    const bybitPrice = await fetchPrice(bybitUrl, 'bybit');
 
-    document.getElementById('btcBinancePrice').textContent = `Binance: $${binancePrice.toFixed(2)}`;
-    flashBackground('btcBinancePrice', binancePrice, 'binance', 'BTC');
-    document.getElementById('btcKrakenPrice').textContent = `Kraken: $${krakenPrice.toFixed(2)}`;
-    flashBackground('btcKrakenPrice', krakenPrice, 'kraken', 'BTC');
-    document.getElementById('btcBitstampPrice').textContent = `Bitstamp: $${bitstampPrice.toFixed(2)}`;
-    flashBackground('btcBitstampPrice', bitstampPrice, 'bitstamp', 'BTC');
-    document.getElementById('btcCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(2)}`;
-    flashBackground('btcCoinbasePrice', coinbasePrice, 'coinbase', 'BTC');
-    document.getElementById('btcCexPrice').textContent = `CEX: $${cexPrice.toFixed(2)}`;
-    flashBackground('btcCexPrice', cexPrice, 'cex', 'BTC');
+    document.getElementById('btcBinancePrice').textContent = `Binance: $${binancePrice.toFixed(0)}`;
+    document.getElementById('btcKrakenPrice').textContent = `Kraken: $${krakenPrice.toFixed(0)}`;
+    document.getElementById('btcBitstampPrice').textContent = `Bitstamp: $${bitstampPrice.toFixed(0)}`;
+    document.getElementById('btcCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(0)}`;
+    document.getElementById('btcBybitPrice').textContent = `Bybit: $${bybitPrice.toFixed(0)}`;
 
     updateArbitrage('btcBinanceKrakenArbitrage', binancePrice, krakenPrice, 'Binance', 'Kraken');
     updateArbitrage('btcBinanceBitstampArbitrage', binancePrice, bitstampPrice, 'Binance', 'Bitstamp');
     updateArbitrage('btcBinanceCoinbaseArbitrage', binancePrice, coinbasePrice, 'Binance', 'Coinbase');
-    updateArbitrage('btcBinanceCexArbitrage', binancePrice, cexPrice, 'Binance', 'CEX');
+    updateArbitrage('btcBinanceBybitArbitrage', binancePrice, bybitPrice, 'Binance', 'Bybit');
 }
 async function updatePricesofeth() {
     const binanceUrl = 'https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT';
-    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=ETHUSD';
-    const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/ethusd/';
-    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/ETH-USD/spot';
-    const cexUrl = 'https://cex.io/api/last_price/ETH/USD';
+    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=ETHUSDT';
+    const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/ethusdt/';
+    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/ETH-USDT/spot';
+    const bybitUrl = 'https://api.bybit.com/v2/public/tickers?symbol=ETHUSDT';
 
     const binancePrice = await fetchPrice(binanceUrl, 'binance');
     const krakenPrice = await fetchPrice(krakenUrl, 'kraken');
     const bitstampPrice = await fetchPrice(bitstampUrl, 'bitstamp');
     const coinbasePrice = await fetchPrice(coinbaseUrl, 'coinbase');
-    const cexPrice = await fetchPrice(cexUrl, 'cex');
+    const bybitPrice = await fetchPrice(bybitUrl, 'bybit');
 
-    document.getElementById('ethBinancePrice').textContent = `Binance: $${binancePrice.toFixed(2)}`;
-    flashBackground('ethBinancePrice', binancePrice, 'binance', 'ETH');
-    document.getElementById('ethKrakenPrice').textContent = `Kraken: $${krakenPrice.toFixed(2)}`;
-    flashBackground('ethKrakenPrice', krakenPrice, 'kraken', 'ETH');
-    document.getElementById('ethBitstampPrice').textContent = `Bitstamp: $${bitstampPrice.toFixed(2)}`;
-    flashBackground('ethBitstampPrice', bitstampPrice, 'bitstamp', 'ETH');
-    document.getElementById('ethCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(2)}`;
-    flashBackground('ethCoinbasePrice', coinbasePrice, 'coinbase', 'ETH');
-    document.getElementById('ethCexPrice').textContent = `CEX: $${cexPrice.toFixed(2)}`;
-    flashBackground('ethCexPrice', cexPrice, 'cex', 'ETH');
+    document.getElementById('ethBinancePrice').textContent = `Binance: $${binancePrice.toFixed(0)}`;
+    document.getElementById('ethKrakenPrice').textContent = `Kraken: $${krakenPrice.toFixed(0)}`;
+    document.getElementById('ethBitstampPrice').textContent = `Bitstamp: $${bitstampPrice.toFixed(0)}`;
+    document.getElementById('ethCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(0)}`;
+    document.getElementById('ethBybitPrice').textContent = `Bybit: $${bybitPrice.toFixed(0)}`;
 
     updateArbitrage('ethBinanceKrakenArbitrage', binancePrice, krakenPrice, 'Binance', 'Kraken');
     updateArbitrage('ethBinanceBitstampArbitrage', binancePrice, bitstampPrice, 'Binance', 'Bitstamp');
     updateArbitrage('ethBinanceCoinbaseArbitrage', binancePrice, coinbasePrice, 'Binance', 'Coinbase');
-    updateArbitrage('ethBinanceCexArbitrage', binancePrice, cexPrice, 'Binance', 'CEX');
+    updateArbitrage('ethBinanceBybitArbitrage', binancePrice, bybitPrice, 'Binance', 'Bybit');
 }
 async function updatePricesofSol() {
     const binanceUrl = 'https://api.binance.com/api/v3/ticker/price?symbol=SOLUSDT';
-    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=SOLUSD';
+    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=SOLUSDT';
     const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/solusd/';
-    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/SOL-USD/spot';
-    const cexUrl = 'https://cex.io/api/last_price/SOL/USD';
+    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/SOL-USDT/spot';
+    const bybitUrl = 'https://api.bybit.com/v2/public/tickers?symbol=SOLUSDT';
 
     const binancePrice = await fetchPrice(binanceUrl, 'binance');
     const krakenPrice = await fetchPrice(krakenUrl, 'kraken');
     const bitstampPrice = await fetchPrice(bitstampUrl, 'bitstamp');
     const coinbasePrice = await fetchPrice(coinbaseUrl, 'coinbase');
-    const cexPrice = await fetchPrice(cexUrl, 'cex');
+    const bybitPrice = await fetchPrice(bybitUrl, 'bybit');
 
-    document.getElementById('solBinancePrice').textContent = `Binance: $${binancePrice.toFixed(2)}`;
-    flashBackground('solBinancePrice', binancePrice, 'binance', 'SOL');
-    document.getElementById('solKrakenPrice').textContent = `Kraken: $${krakenPrice.toFixed(2)}`;
-    flashBackground('solKrakenPrice', krakenPrice, 'kraken', 'SOL');
-    document.getElementById('solBitstampPrice').textContent = `Bitstamp: $${bitstampPrice.toFixed(2)}`;
-    flashBackground('solBitstampPrice', bitstampPrice, 'bitstamp', 'SOL');
-    document.getElementById('solCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(2)}`;
-    flashBackground('solCoinbasePrice', coinbasePrice, 'coinbase', 'SOL');
-    document.getElementById('solCexPrice').textContent = `CEX: $${cexPrice.toFixed(2)}`;
-    flashBackground('solCexPrice', cexPrice, 'cex', 'SOL');
+    document.getElementById('solBinancePrice').textContent = `Binance: $${binancePrice.toFixed(1)}`;
+    document.getElementById('solKrakenPrice').textContent = `Kraken: $${krakenPrice.toFixed(1)}`;
+    document.getElementById('solBitstampPrice').textContent = `Bitstamp: $${bitstampPrice.toFixed(1)}`;
+    document.getElementById('solCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(1)}`;
+    document.getElementById('solBybitPrice').textContent = `Bybit: $${bybitPrice.toFixed(1)}`;
 
     updateArbitrage('solBinanceKrakenArbitrage', binancePrice, krakenPrice, 'Binance', 'Kraken');
     updateArbitrage('solBinanceBitstampArbitrage', binancePrice, bitstampPrice, 'Binance', 'Bitstamp');
     updateArbitrage('solBinanceCoinbaseArbitrage', binancePrice, coinbasePrice, 'Binance', 'Coinbase');
-    updateArbitrage('solBinanceCexArbitrage', binancePrice, cexPrice, 'Binance', 'CEX');
+    updateArbitrage('solBinanceBybitArbitrage', binancePrice, bybitPrice, 'Binance', 'Bybit');
 }
 async function updatePricesofAxs() {
     const binanceUrl = 'https://api.binance.com/api/v3/ticker/price?symbol=AXSUSDT';
     const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=AXSUSD';
     const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/axsusd/';
-    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/AXS-USD/spot';
-    const cexUrl = 'https://cex.io/api/last_price/AXS/USD';
+    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/AXS-USDT/spot';
+    const bybitUrl = 'https://api.bybit.com/v2/public/tickers?symbol=AXSUSDT';
 
     const binancePrice = await fetchPrice(binanceUrl, 'binance');
     const krakenPrice = await fetchPrice(krakenUrl, 'kraken');
     const bitstampPrice = await fetchPrice(bitstampUrl, 'bitstamp');
     const coinbasePrice = await fetchPrice(coinbaseUrl, 'coinbase');
-    const cexPrice = await fetchPrice(cexUrl, 'cex');
+    const bybitPrice = await fetchPrice(bybitUrl, 'bybit');
+
 
     document.getElementById('axsBinancePrice').textContent = `Binance: $${binancePrice.toFixed(2)}`;
     flashBackground('axsBinancePrice', binancePrice, 'binance', 'AXS');
@@ -131,26 +117,27 @@ async function updatePricesofAxs() {
     flashBackground('axsBitstampPrice', bitstampPrice, 'bitstamp', 'AXS');
     document.getElementById('axsCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(2)}`;
     flashBackground('axsCoinbasePrice', coinbasePrice, 'coinbase', 'AXS');
-    document.getElementById('axsCexPrice').textContent = `CEX: $${cexPrice.toFixed(2)}`;
-    flashBackground('axsCexPrice', cexPrice, 'cex', 'AXS');
+    document.getElementById('axsBybitPrice').textContent = `Bybit: $${bybitPrice.toFixed(2)}`;
+    flashBackground('axsBybitPrice', bybitPrice, 'bybit', 'AXS');
 
     updateArbitrage('axsBinanceKrakenArbitrage', binancePrice, krakenPrice, 'Binance', 'Kraken');
     updateArbitrage('axsBinanceBitstampArbitrage', binancePrice, bitstampPrice, 'Binance', 'Bitstamp');
     updateArbitrage('axsBinanceCoinbaseArbitrage', binancePrice, coinbasePrice, 'Binance', 'Coinbase');
-    updateArbitrage('axsBinanceCexArbitrage', binancePrice, cexPrice, 'Binance', 'CEX');
+    updateArbitrage('axsBinanceBybitArbitrage', binancePrice, bybitPrice, 'Binance', 'Bybit');
+
 }
 async function updatePricesofdoge() {
     const binanceUrl = 'https://api.binance.com/api/v3/ticker/price?symbol=DOGEUSDT';
-    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=DOGEUSD';
+    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=DOGEUSDT';
     const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/dogeusd/';
-    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/DOGE-USD/spot';
-    const cexUrl = 'https://cex.io/api/last_price/DOGE/USD';
+    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/DOGE-USDT/spot';
+    const bybitUrl = 'https://api.bybit.com/v2/public/tickers?symbol=DOGEUSDT';
 
     const binancePrice = await fetchPrice(binanceUrl, 'binance');
     const krakenPrice = await fetchPrice(krakenUrl, 'kraken');
     const bitstampPrice = await fetchPrice(bitstampUrl, 'bitstamp');
     const coinbasePrice = await fetchPrice(coinbaseUrl, 'coinbase');
-    const cexPrice = await fetchPrice(cexUrl, 'cex');
+    const bybitPrice = await fetchPrice(bybitUrl, 'bybit');
 
     document.getElementById('dogeBinancePrice').textContent = `Binance: $${binancePrice.toFixed(4)}`;
     flashBackground('dogeBinancePrice', binancePrice, 'binance', 'DOGE');
@@ -160,42 +147,42 @@ async function updatePricesofdoge() {
     flashBackground('dogeBitstampPrice', bitstampPrice, 'bitstamp', 'DOGE');
     document.getElementById('dogeCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(4)}`;
     flashBackground('dogeCoinbasePrice', coinbasePrice, 'coinbase', 'DOGE');
-    document.getElementById('dogeCexPrice').textContent = `CEX: $${cexPrice.toFixed(4)}`;
-    flashBackground('dogeCexPrice', cexPrice, 'cex', 'DOGE');
+    document.getElementById('dogeBybitPrice').textContent = `Bybit: $${bybitPrice.toFixed(4)}`;
+    flashBackground('dogeBybitPrice', bybitPrice, 'bybit', 'DOGE');
 
     updateArbitrage('dogeBinanceKrakenArbitrage', binancePrice, krakenPrice, 'Binance', 'Kraken');
     updateArbitrage('dogeBinanceBitstampArbitrage', binancePrice, bitstampPrice, 'Binance', 'Bitstamp');
     updateArbitrage('dogeBinanceCoinbaseArbitrage', binancePrice, coinbasePrice, 'Binance', 'Coinbase');
-    updateArbitrage('dogeBinanceCexArbitrage', binancePrice, cexPrice, 'Binance', 'CEX');
+    updateArbitrage('dogeBinanceBybitArbitrage', binancePrice, bybitPrice, 'Binance', 'Bybit');
 }
 async function updatePricesofXrp() {
     const binanceUrl = 'https://api.binance.com/api/v3/ticker/price?symbol=XRPUSDT';
-    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=XRPUSD';
-    const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/xrpusd/';
-    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/XRP-USD/spot';
-    const cexUrl = 'https://cex.io/api/last_price/XRP/USD';
+    const krakenUrl = 'https://api.kraken.com/0/public/Ticker?pair=XRPUSDT';
+    const bitstampUrl = 'https://www.bitstamp.net/api/v2/ticker/xrpusdt/';
+    const coinbaseUrl = 'https://api.coinbase.com/v2/prices/XRP-USDT/spot';
+    const bybitUrl = 'https://api.bybit.com/v2/public/tickers?symbol=XRPUSDT';
 
     const binancePrice = await fetchPrice(binanceUrl, 'binance');
     const krakenPrice = await fetchPrice(krakenUrl, 'kraken');
     const bitstampPrice = await fetchPrice(bitstampUrl, 'bitstamp');
     const coinbasePrice = await fetchPrice(coinbaseUrl, 'coinbase');
-    const cexPrice = await fetchPrice(cexUrl, 'cex');
+    const bybitPrice = await fetchPrice(bybitUrl, 'bybit');
 
-    document.getElementById('xrpBinancePrice').textContent = `Binance: $${binancePrice.toFixed(4)}`;
+    document.getElementById('xrpBinancePrice').textContent = `Binance: $${binancePrice.toFixed(3)}`;
     flashBackground('xrpBinancePrice', binancePrice, 'binance', 'XRP');
-    document.getElementById('xrpKrakenPrice').textContent = `Kraken: $${krakenPrice.toFixed(4)}`;
+    document.getElementById('xrpKrakenPrice').textContent = `Kraken: $${krakenPrice.toFixed(3)}`;
     flashBackground('xrpKrakenPrice', krakenPrice, 'kraken', 'XRP');
-    document.getElementById('xrpBitstampPrice').textContent = `Bitstamp: $${bitstampPrice.toFixed(4)}`;
+    document.getElementById('xrpBitstampPrice').textContent = `Bitstamp: $${bitstampPrice.toFixed(3)}`;
     flashBackground('xrpBitstampPrice', bitstampPrice, 'bitstamp', 'XRP');
-    document.getElementById('xrpCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(4)}`;
+    document.getElementById('xrpCoinbasePrice').textContent = `Coinbase: $${coinbasePrice.toFixed(3)}`;
     flashBackground('xrpCoinbasePrice', coinbasePrice, 'coinbase', 'XRP');
-    document.getElementById('xrpCexPrice').textContent = `CEX: $${cexPrice.toFixed(4)}`;
-    flashBackground('xrpCexPrice', cexPrice, 'cex', 'XRP');
+    document.getElementById('xrpBybitPrice').textContent = `Bybit: $${bybitPrice.toFixed(3)}`;
+    flashBackground('xrpBybitPrice', bybitPrice, 'bybit', 'XRP');
 
     updateArbitrage('xrpBinanceKrakenArbitrage', binancePrice, krakenPrice, 'Binance', 'Kraken');
     updateArbitrage('xrpBinanceBitstampArbitrage', binancePrice, bitstampPrice, 'Binance', 'Bitstamp');
     updateArbitrage('xrpBinanceCoinbaseArbitrage', binancePrice, coinbasePrice, 'Binance', 'Coinbase');
-    updateArbitrage('xrpBinanceCexArbitrage', binancePrice, cexPrice, 'Binance', 'CEX');
+    updateArbitrage('xrpBinanceBybitArbitrage', binancePrice, bybitPrice, 'Binance', 'Bybit');
 } //------------------------------------------------------------------------------------------
 
 // Calculating the Arbitrage //---------------------------------------------------------------
@@ -205,9 +192,9 @@ function updateArbitrage(elementId, price1, price2, exchange1, exchange2) {
     arbitrageElement.textContent = `${exchange1} vs ${exchange2}: ${percentDifference.toFixed(2)}%`;
     arbitrageElement.style.color = 'black'; // Ensure text color is always black
 
-    if (Math.abs(percentDifference) > 1) {
+    if (Math.abs(percentDifference) > 1.5) {
         arbitrageElement.style.backgroundColor = '#00ff22';
-    } else if (Math.abs(percentDifference) >= 0.5 && Math.abs(percentDifference) <= 1) {
+    } else if (Math.abs(percentDifference) >= 0.75 && Math.abs(percentDifference) <= 1.5) {
         arbitrageElement.style.backgroundColor = 'orange';
     } else {
         arbitrageElement.style.backgroundColor = 'white';
@@ -223,12 +210,12 @@ function startPriceUpdates() {
     updatePricesofdoge(); 
     updatePricesofXrp(); 
 
-    setInterval(updatePricesofbtc, 11000);
-    setInterval(updatePricesofeth, 13000);
-    setInterval(updatePricesofSol, 10500);
-    setInterval(updatePricesofAxs, 10400); 
-    setInterval(updatePricesofdoge, 10200); 
-    setInterval(updatePricesofXrp, 9000); 
+    setInterval(updatePricesofbtc, 25000);
+    setInterval(updatePricesofeth, 25000);
+    setInterval(updatePricesofSol, 25000);
+    setInterval(updatePricesofAxs, 25000); 
+    setInterval(updatePricesofdoge, 25000); 
+    setInterval(updatePricesofXrp, 25000); 
 } //------------------------------------------------------------------------------------------
 
 // When price updates, flash colour //--------------------------------------------------------
@@ -250,7 +237,7 @@ const lastPrices = {
     kraken: {},
     bitstamp: {},
     coinbase: {},
-    cex: {}
+    bybit: {}
 } //------------------------------------------------------------------------------------------ 
 
 startPriceUpdates();
