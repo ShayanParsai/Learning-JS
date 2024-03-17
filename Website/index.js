@@ -223,15 +223,13 @@ function startPriceUpdates() {
     updatePricesofdoge(); 
     updatePricesofXrp(); 
 
-    setInterval(updatePricesofbtc, 10000);
-    setInterval(updatePricesofeth, 10000);
-    setInterval(updatePricesofSol, 10000);
-    setInterval(updatePricesofAxs, 10000); 
-    setInterval(updatePricesofdoge, 10000); 
-    setInterval(updatePricesofXrp, 10000); 
+    setInterval(updatePricesofbtc, 11000);
+    setInterval(updatePricesofeth, 13000);
+    setInterval(updatePricesofSol, 10500);
+    setInterval(updatePricesofAxs, 10400); 
+    setInterval(updatePricesofdoge, 10200); 
+    setInterval(updatePricesofXrp, 9000); 
 } //------------------------------------------------------------------------------------------
-
-startPriceUpdates();
 
 // When price updates, flash colour //--------------------------------------------------------
 function flashBackground(elementId, newPrice, exchange, symbol) {
@@ -246,10 +244,13 @@ function flashBackground(elementId, newPrice, exchange, symbol) {
     lastPrices[exchange][symbol] = newPrice;
 } //------------------------------------------------------------------------------------------
 
+// Saves the last updated price //------------------------------------------------------------
 const lastPrices = {
     binance: {},
     kraken: {},
     bitstamp: {},
     coinbase: {},
     cex: {}
-};
+} //------------------------------------------------------------------------------------------ 
+
+startPriceUpdates();
