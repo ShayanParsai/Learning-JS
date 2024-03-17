@@ -1,0 +1,43 @@
+.prices-container {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px;
+}
+
+.whatcoinistracked {
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 24px;
+    font-weight: 1000;
+}
+
+.prices-container p {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.prices-container p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.prices-container p[id$="Price"] {
+    background-color: #94f5a1;
+    border: 1px solid #533131;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.prices-container p[id$="Arbitrage"] {
+    font-weight: bold;
+    background-color: #f9f9f9; 
+    border: 1px solid #533131; 
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 10px; 
+}
