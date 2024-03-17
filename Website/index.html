@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binance Arbitrage Tracker</title>
     <link rel="stylesheet" href="style.css">
-
-    <title>ThaiTravelPlanner</title>
 </head>
 <body>
+    <h1>Binance Arbitrage Tracker</h1>
 
-    <div><br>
-        <label id="welcometitle"> ThaiTravelPlanner </label><br><br>
-    </div><br>
+    <div class="pairs-container">
+        <div class="prices-container" id="btcPrices">
+            <p class="whatcoinistracked">BTC/USD Prices</p>
+            <p id="btcBinancePrice">Binance: Loading...</p>
+            <p id="btcKrakenPrice">Kraken: Loading...</p>
+            <p id="btcBitstampPrice">Bitstamp: Loading...</p>
+            <p id="btcBinanceKrakenArbitrage">Binance vs Kraken Arbitrage: Calculating...</p>
+            <p id="btcBinanceBitstampArbitrage">Binance vs Bitstamp Arbitrage: Calculating...</p>
+        </div>
 
-    <div id="usernamediv"><br>
-        <br><label id="usernamelabel"> Enter your first and lastname </label><br>
-        <input type="text" id="usernametext"><br>
-        <br><button type="button" id="loginbutton">Submit</button>
-    </div><br>
-
-    <div id="threebuttonsdiv">
-        <label id="daystraveling">7</label><br>
-        <button type="button" id="increasebutton">Increase</button>
-        <button type="button" id="resetbutton">Reset</button>
-        <button type="button" id="decreasebutton">Decrease</button><br>
+        <div class="prices-container" id="ethPrices">
+            <p class="whatcoinistracked">ETH/USD Prices</p>
+            <p id="ethBinancePrice">Binance: Loading...</p>
+            <p id="ethKrakenPrice">Kraken: Loading...</p>
+            <p id="ethBitstampPrice">Bitstamp: Loading...</p>
+            <p id="ethBinanceKrakenArbitrage">Binance vs Kraken Arbitrage: Calculating...</p>
+            <p id="ethBinanceBitstampArbitrage">Binance vs Bitstamp Arbitrage: Calculating...</p>
+        </div>
     </div>
 
     <script src="index.js"></script>
