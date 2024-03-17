@@ -19,10 +19,18 @@ body {
     align-items: center;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
 }
 
 .pairs-container {
     display: flex;
     justify-content: space-around;
+}
+
+body {
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
 }
