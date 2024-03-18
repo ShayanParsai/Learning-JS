@@ -23,8 +23,10 @@ body {
 }
 
 .pairs-container {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 21px;
+    padding: 20px;
 }
 
 body {
