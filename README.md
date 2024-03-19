@@ -1,1 +1,1 @@
-https://arbitragetracker.netlify.app/
+www.arbitragetracker.io
