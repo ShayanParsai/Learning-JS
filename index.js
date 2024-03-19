@@ -355,6 +355,12 @@ const lastPrices = { // Saves the last updated price
     bybit: {}
 }
 
-
+document.addEventListener("DOMContentLoaded", function() {
+    const startTrackingButton = document.getElementById('startTrackingButton');
+    startTrackingButton.addEventListener('click', function() {
+        const mainSection = document.getElementById('mainSection');
+        mainSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    })
+})
 
 startPriceUpdates();

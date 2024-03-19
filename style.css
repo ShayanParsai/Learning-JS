@@ -1,38 +1,81 @@
-h1 {
-    font-size: 32px;
+
+
+@media(min-width: 768px) {
+    .news-input {
+        width: 50%;
+    }
+}
+
+.prices-container {
+    background-color: #fff;
+    border: 4px solid #888888;
+    padding: 20px;
+    border-radius: 44px;
+    max-width: 300px;
+}
+
+.whatcoinistracked {
     text-align: center;
-    border: 2px solid #333;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    padding-bottom: 20px;
+    font-weight: 1000;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 20px;
-    background-color: #ffffff;
+.prices-container p {
+    font-size: 16px;
+    line-height: 1.25;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.pairs-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 21px;
-    padding: 20px;
+.prices-container p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
 }
 
-body {
-    background-image: url('images/background.png');
+.prices-container p[id$="Price"] {
+    background-color: #94f5a1;
+    border: 1px solid #533131;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.prices-container p[id$="Arbitrage"] {
+    font-weight: bold;
+    background-color: #f9f9f9; 
+    border: 1px solid #533131; 
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 10px; 
+}
+
+.main-section {
+    position: relative;
+    background-image: url('img/background.png');
     background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
+    background-position: center;
+}
+
+.text-stroke {
+    text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+.navbar {
+    font-size: 1.2rem;
+    border-bottom: 3px solid #000000;
+}
+
+.navbar-brand {
+    padding: 14px 5px; 
+    font-size: 2rem; 
+}
+
+#startTrackingButton {
+    border-color: #000000;
+    border-width: 2px;
 }
