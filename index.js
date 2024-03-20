@@ -201,7 +201,7 @@ async function updatePricesofAvax() { // AVAX/USDT Pair
     ];
 
     prices.forEach(({ name, price }) => {
-        document.getElementById(`avax${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
+        document.getElementById(`avax${name}Price`).textContent = `${name}: $${price.toFixed(1)}`;
         flashBackground(`avax${name}Price`, price, name.toLowerCase(), 'AVAX');
     });
 
@@ -222,7 +222,7 @@ async function updatePricesofLtc() { // LTC/USDT Pair
     ];
 
     prices.forEach(({ name, price }) => {
-        document.getElementById(`ltc${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
+        document.getElementById(`ltc${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
         flashBackground(`ltc${name}Price`, price, name.toLowerCase(), 'LTC');
     });
 
@@ -243,7 +243,7 @@ async function updatePricesofLink() { // LINK/USDT Pair
     ];
 
     prices.forEach(({ name, price }) => {
-        document.getElementById(`link${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
+        document.getElementById(`link${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
         flashBackground(`link${name}Price`, price, name.toLowerCase(), 'LINK');
     });
 
@@ -278,11 +278,11 @@ async function updatePricesofAda() { // ADA/USDT Pair
 function updateArbitrage(elementId, price1, price2, exchange1, exchange2) { // Calculating the Arbitrage
     const percentDifference = ((price2 - price1) / price1) * 100;
     const arbitrageElement = document.getElementById(elementId);
-    arbitrageElement.textContent = `${exchange1} vs ${exchange2}: ${percentDifference.toFixed(1)}%`;
+    arbitrageElement.textContent = `${exchange1}>${exchange2}: ${percentDifference.toFixed(2)}%`;
 
     if (Math.abs(percentDifference) > 1) {
         arbitrageElement.style.backgroundColor = '#00ff22';
-    } else if (Math.abs(percentDifference) >= 0.5 && Math.abs(percentDifference) <= 1) {
+    } else if (Math.abs(percentDifference) >= 0.49 && Math.abs(percentDifference) <= 1) {
         arbitrageElement.style.backgroundColor = 'orange';
     } else {
         arbitrageElement.style.backgroundColor = 'white';
