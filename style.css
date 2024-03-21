@@ -45,7 +45,7 @@
     margin-bottom: 10px; 
 }
 
-.main-section {  /* The entire main page with background picture */
+.main-section {  /* The main pages with background picture */
     position: relative;
     background-image: url('img/background.png');
     background-size: cover;
