@@ -69,6 +69,11 @@
     font-size: 2rem; 
 }
 
+#startTrackingButton { /* The button ''Start Tracking'' */
+    border-color: #000000;
+    border-width: 2px;
+}
+
 .text-stroke { /* Shadow around text */
     text-shadow: 
     -1px -1px 0 #000,  
