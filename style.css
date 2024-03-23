@@ -13,10 +13,10 @@
 
 .prices-container { /* All the pairs boxes */
     background-color: #fff;
-    border: 4px solid #888888;
+    border: 4px solid #444444;
     padding: 20px;
     border-radius: 44px;
-    max-width: 300px;
+    max-width: 315px;
 }
 
 .prices-container p { /* The paragraphs inside the pairs boxes */
@@ -44,14 +44,11 @@
     margin-bottom: 6px; 
 }
 
-.main-section {  /* The main pages with background picture */
-    position: relative;
-    background-image: url('img/background.png');
-    background-size: cover;
-    background-position: center;
+.main-section {  /* Background color of all pages */ 
+    background-color: #a1a1a1;
 }
   
-.content-box { /* All pages, main content boxes */
+.content-box { /* How, Support and FAQ page Content box */
     background-color: white;
     padding: 20px;
     border-radius: 8px;
