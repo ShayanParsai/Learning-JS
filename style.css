@@ -50,11 +50,11 @@
     background-position: center;
 }
   
-.content-box {
+.content-box { /* All pages, main content boxes */
     background-color: white;
-    padding: 20px; /* Adjust padding as needed */
-    border-radius: 8px; /* Optional, for rounded corners */
-    margin: 20px 0; /* Adjust margin as needed for spacing */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0; 
 }
   
 .navbar { /* The navbar on the TOP TOP of website */
@@ -64,11 +64,6 @@
 .navbar-brand { /* Specifily the ''Arbitrage Tracker'' Text */
     padding: 14px 5px; 
     font-size: 2rem; 
-}
-
-#startTrackingButton { /* The button ''Start Tracking'' */
-    border-color: #000000;
-    border-width: 2px;
 }
 
 .text-stroke { /* Shadow around text */
