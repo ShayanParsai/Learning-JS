@@ -13,3 +13,21 @@ document.addEventListener("DOMContentLoaded", function() { // 'Start Tracking' b
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() { // 'Hide prices' button
+    const togglePricesBtn = document.getElementById('togglePricesBtn'); 
+
+    togglePricesBtn.addEventListener('click', function() {
+        const priceElements = document.querySelectorAll('.prices-container p[id$="Price"]');
+        
+        priceElements.forEach(function(element) {
+            if (element.style.display === 'none') {
+                element.style.display = '';
+                togglePricesBtn.textContent = 'Hide prices';
+            } else {
+                element.style.display = 'none';
+                togglePricesBtn.textContent = 'Show prices';
+            }
+        });
+    });
+});

@@ -13,23 +13,24 @@
 
 .prices-container { /* All the pairs boxes */
     background-color: #fff;
-    border: 4px solid #888888;
+    border: 4px solid #444444;
     padding: 20px;
     border-radius: 44px;
-    max-width: 300px;
+    max-width: 315px;
 }
 
 .prices-container p { /* The paragraphs inside the pairs boxes */
     font-size: 16px;
     line-height: 1.25;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 .prices-container p[id$="Price"] { /* Specifily the price boxes of the pairs */
     background-color: #94f5a1;
     border: 2px solid #000000;
     padding: 10px;
+    margin-bottom: 10px;
     border-radius: 8px;
 }
 
@@ -37,24 +38,21 @@
     font-weight: bold;
     background-color: #f9f9f9; 
     border: 2px solid #000000;
-    padding: 10px;
+    padding: 9px;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-    margin-bottom: 10px; 
+    margin-bottom: 6px; 
 }
 
-.main-section {  /* The main pages with background picture */
-    position: relative;
-    background-image: url('img/background.png');
-    background-size: cover;
-    background-position: center;
+.main-section {  /* Background color of all pages */ 
+    background-color: #a1a1a1;
 }
   
-.content-box {
+.content-box { /* How, Support and FAQ page Content box */
     background-color: white;
-    padding: 20px; /* Adjust padding as needed */
-    border-radius: 8px; /* Optional, for rounded corners */
-    margin: 20px 0; /* Adjust margin as needed for spacing */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0; 
 }
   
 .navbar { /* The navbar on the TOP TOP of website */
@@ -64,11 +62,6 @@
 .navbar-brand { /* Specifily the ''Arbitrage Tracker'' Text */
     padding: 14px 5px; 
     font-size: 2rem; 
-}
-
-#startTrackingButton { /* The button ''Start Tracking'' */
-    border-color: #000000;
-    border-width: 2px;
 }
 
 .text-stroke { /* Shadow around text */
