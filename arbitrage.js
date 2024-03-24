@@ -296,9 +296,9 @@ function updateArbitrage(elementId, price1, price2, exchange1, exchange2) { // C
     const arbitrageElement = document.getElementById(elementId);
     arbitrageElement.textContent = `${exchange1}>${exchange2}: ${percentDifference.toFixed(2)}%`;
 
-    if (Math.abs(percentDifference) > 1) {
+    if (Math.abs(percentDifference) > 0.99) {
         arbitrageElement.style.backgroundColor = '#00ff22';
-    } else if (Math.abs(percentDifference) >= 0.40 && Math.abs(percentDifference) <= 1) {
+    } else if (Math.abs(percentDifference) >= 0.40 && Math.abs(percentDifference) <= 0.99) {
         arbitrageElement.style.backgroundColor = 'orange';
     } else {
         arbitrageElement.style.backgroundColor = 'white';
