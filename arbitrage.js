@@ -353,7 +353,7 @@ const lastPrices = { // Here is the saved last prices for the flashbackground
     binance: {},
     kraken: {},
     coinbase: {},
-    htx: {},
-    bybit: {}
+    bybit: {},
+    htx: {}
 } 
 startPriceUpdates();
