@@ -19,6 +19,15 @@
     padding: 20px;
     border-radius: 44px;
     max-width: 315px;
+    position: relative;
+}
+
+.crypto-logo { /* The crypto logos in the price boxes */
+    position: absolute;
+    top: 12px;
+    left: 23px;
+    width: 35px;
+    height: auto;
 }
 
 .prices-container p { /* The paragraphs inside the pairs boxes */
