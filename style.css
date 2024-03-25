@@ -1,6 +1,8 @@
-@media(min-width: 768px) { /* Input Email box */
-    .news-input {
+@media(min-width: 768px) { /* Input Email form */
+    .email-form {
         width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

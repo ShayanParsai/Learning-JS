@@ -302,6 +302,62 @@ async function updatePricesOfBch() { // BCH/USDT Pair
     });
     processArbitrage(prices, 'bch');
 }
+async function updatePricesOfApt() { // APT/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=APTUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=APTUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/APT-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=APTUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=aptusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => {
+        document.getElementById(`apt${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
+        flashBackground(`apt${name}Price`, price, name.toLowerCase(), 'APT');
+    });
+    processArbitrage(prices, 'apt');
+}
+async function updatePricesOfFil() { // FIL/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=FILUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=FILUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/FIL-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=FILUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=filusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => {
+        document.getElementById(`fil${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
+        flashBackground(`fil${name}Price`, price, name.toLowerCase(), 'FIL');
+    });
+    processArbitrage(prices, 'fil');
+}
+async function updatePricesOfEtc() { // ETC/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=ETCUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=ETCUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/ETC-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=ETCUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=etcusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => {
+        document.getElementById(`etc${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
+        flashBackground(`etc${name}Price`, price, name.toLowerCase(), 'ETC');
+    });
+    processArbitrage(prices, 'etc');
+}
+async function updatePricesOfAtom() { // ATOM/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=ATOMUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=ATOMUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/ATOM-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=ATOMUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=atomusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => {
+        document.getElementById(`atom${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
+        flashBackground(`atom${name}Price`, price, name.toLowerCase(), 'ATOM');
+    });
+    processArbitrage(prices, 'atom');
+}
 function processArbitrage(prices, crypto) { // prepares the info that is sent into updateArbitrage
     let lowest = prices.reduce((prev, curr) => prev.price < curr.price ? prev : curr);
     let highest = prices.reduce((prev, curr) => prev.price > curr.price ? prev : curr);
@@ -331,7 +387,8 @@ function startPriceUpdates() { // Update the prices
         updatePricesofLtc, updatePricesofLink, updatePricesofAda,
         updatePricesOfIcp, updatePricesOfDot, updatePricesOfXlm, 
         updatePricesOfUni, updatePricesOfNear, updatePricesOfTrx,
-        updatePricesOfMatic, updatePricesOfBch
+        updatePricesOfMatic, updatePricesOfBch, updatePricesOfApt,
+        updatePricesOfFil, updatePricesOfEtc, updatePricesOfAtom
     ];
 
     updateFunctions.forEach(func => {
