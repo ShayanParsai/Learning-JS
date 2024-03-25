@@ -30,10 +30,7 @@ async function updatePricesofBtc() { // BTC/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=BTCUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=btcusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`btc${name}Price`).textContent = `${name}: $${price.toFixed(0)}`;
-        flashBackground(`btc${name}Price`, price, name.toLowerCase(), 'BTC');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('btc', name, price, name.toLowerCase()));
     processArbitrage(prices, 'btc');
 }
 async function updatePricesofEth() { // ETH/USDT Pair
@@ -44,10 +41,7 @@ async function updatePricesofEth() { // ETH/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=ETHUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=ethusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`eth${name}Price`).textContent = `${name}: $${price.toFixed(0)}`;
-        flashBackground(`eth${name}Price`, price, name.toLowerCase(), 'ETH');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('eth', name, price, name.toLowerCase()));
     processArbitrage(prices, 'eth');
 }
 async function updatePricesofSol() { // SOL/USDT Pair
@@ -58,10 +52,7 @@ async function updatePricesofSol() { // SOL/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=SOLUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=solusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`sol${name}Price`).textContent = `${name}: $${price.toFixed(1)}`;
-        flashBackground(`sol${name}Price`, price, name.toLowerCase(), 'SOL');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('sol', name, price, name.toLowerCase()));
     processArbitrage(prices, 'sol');
 }
 async function updatePricesofAxs() { // AXS/USDT Pair
@@ -72,10 +63,7 @@ async function updatePricesofAxs() { // AXS/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=AXSUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=axsusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`axs${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`axs${name}Price`, price, name.toLowerCase(), 'AXS');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('axs', name, price, name.toLowerCase()));
     processArbitrage(prices, 'axs');
 }
 async function updatePricesofdoge() { // DOGE/USDT Pair
@@ -86,10 +74,7 @@ async function updatePricesofdoge() { // DOGE/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=DOGEUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=dogeusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`doge${name}Price`).textContent = `${name}: $${price.toFixed(4)}`;
-        flashBackground(`doge${name}Price`, price, name.toLowerCase(), 'DOGE');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('doge', name, price, name.toLowerCase()));
     processArbitrage(prices, 'doge');
 }
 async function updatePricesofXrp() { // XRP/USDT Pair
@@ -100,10 +85,7 @@ async function updatePricesofXrp() { // XRP/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=XRPUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=xrpusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`xrp${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
-        flashBackground(`xrp${name}Price`, price, name.toLowerCase(), 'XRP');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('xrp', name, price, name.toLowerCase()));
     processArbitrage(prices, 'xrp');
 }
 async function updatePricesofSand() { // SAND/USDT Pair
@@ -114,10 +96,7 @@ async function updatePricesofSand() { // SAND/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=SANDUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=sandusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`sand${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
-        flashBackground(`sand${name}Price`, price, name.toLowerCase(), 'SAND');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('sand', name, price, name.toLowerCase()));
     processArbitrage(prices, 'sand');
 }
 async function updatePricesofMana() { // MANA/USDT Pair
@@ -128,10 +107,7 @@ async function updatePricesofMana() { // MANA/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=MANAUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=manausdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`mana${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
-        flashBackground(`mana${name}Price`, price, name.toLowerCase(), 'MANA');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('mana', name, price, name.toLowerCase()));
     processArbitrage(prices, 'mana');
 }
 async function updatePricesofAvax() { // AVAX/USDT Pair
@@ -142,10 +118,7 @@ async function updatePricesofAvax() { // AVAX/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=AVAXUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=avaxusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`avax${name}Price`).textContent = `${name}: $${price.toFixed(1)}`;
-        flashBackground(`avax${name}Price`, price, name.toLowerCase(), 'AVAX');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('avax', name, price, name.toLowerCase()));
     processArbitrage(prices, 'avax');
 }
 async function updatePricesofLtc() { // LTC/USDT Pair
@@ -156,10 +129,7 @@ async function updatePricesofLtc() { // LTC/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=LTCUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=ltcusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`ltc${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`ltc${name}Price`, price, name.toLowerCase(), 'LTC');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('ltc', name, price, name.toLowerCase()));
     processArbitrage(prices, 'ltc');
 }
 async function updatePricesofLink() { // LINK/USDT Pair
@@ -170,10 +140,7 @@ async function updatePricesofLink() { // LINK/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=LINKUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=linkusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`link${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`link${name}Price`, price, name.toLowerCase(), 'LINK');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('link', name, price, name.toLowerCase()));
     processArbitrage(prices, 'link');
 }
 async function updatePricesofAda() { // ADA/USDT Pair
@@ -184,10 +151,7 @@ async function updatePricesofAda() { // ADA/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=ADAUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=adausdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`ada${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
-        flashBackground(`ada${name}Price`, price, name.toLowerCase(), 'ADA');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('ada', name, price, name.toLowerCase()));
     processArbitrage(prices, 'ada');
 }
 async function updatePricesOfIcp() { // ICP/USDT Pair
@@ -198,10 +162,7 @@ async function updatePricesOfIcp() { // ICP/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=ICPUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=icpusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`icp${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`icp${name}Price`, price, name.toLowerCase(), 'ICP');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('icp', name, price, name.toLowerCase()));
     processArbitrage(prices, 'icp');
 }
 async function updatePricesOfDot() { // DOT/USDT Pair
@@ -212,10 +173,7 @@ async function updatePricesOfDot() { // DOT/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=DOTUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=dotusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`dot${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`dot${name}Price`, price, name.toLowerCase(), 'DOT');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('dot', name, price, name.toLowerCase()));
     processArbitrage(prices, 'dot');
 }
 async function updatePricesOfXlm() { // XLM/USDT Pair
@@ -226,10 +184,7 @@ async function updatePricesOfXlm() { // XLM/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=XLMUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=xlmusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`xlm${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
-        flashBackground(`xlm${name}Price`, price, name.toLowerCase(), 'XLM');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('xlm', name, price, name.toLowerCase()));
     processArbitrage(prices, 'xlm');
 }
 async function updatePricesOfUni() { // UNI/USDT Pair
@@ -240,10 +195,7 @@ async function updatePricesOfUni() { // UNI/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=UNIUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=uniusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`uni${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`uni${name}Price`, price, name.toLowerCase(), 'UNI');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('uni', name, price, name.toLowerCase()));
     processArbitrage(prices, 'uni');
 }
 async function updatePricesOfNear() { // NEAR/USDT Pair
@@ -254,10 +206,7 @@ async function updatePricesOfNear() { // NEAR/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=NEARUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=nearusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`near${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`near${name}Price`, price, name.toLowerCase(), 'NEAR');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('near', name, price, name.toLowerCase()));
     processArbitrage(prices, 'near');
 }
 async function updatePricesOfTrx() { // TRX/USDT Pair
@@ -268,10 +217,7 @@ async function updatePricesOfTrx() { // TRX/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=TRXUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=trxusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`trx${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
-        flashBackground(`trx${name}Price`, price, name.toLowerCase(), 'TRX');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('trx', name, price, name.toLowerCase()));
     processArbitrage(prices, 'trx');
 }
 async function updatePricesOfMatic() { // MATIC/USDT Pair
@@ -282,10 +228,7 @@ async function updatePricesOfMatic() { // MATIC/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=MATICUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=maticusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`matic${name}Price`).textContent = `${name}: $${price.toFixed(3)}`;
-        flashBackground(`matic${name}Price`, price, name.toLowerCase(), 'MATIC');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('matic', name, price, name.toLowerCase()));
     processArbitrage(prices, 'matic');
 }
 async function updatePricesOfBch() { // BCH/USDT Pair
@@ -296,10 +239,7 @@ async function updatePricesOfBch() { // BCH/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=BCHUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=bchusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`bch${name}Price`).textContent = `${name}: $${price.toFixed(0)}`;
-        flashBackground(`bch${name}Price`, price, name.toLowerCase(), 'BCH');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('bch', name, price, name.toLowerCase()));
     processArbitrage(prices, 'bch');
 }
 async function updatePricesOfApt() { // APT/USDT Pair
@@ -310,10 +250,7 @@ async function updatePricesOfApt() { // APT/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=APTUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=aptusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`apt${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`apt${name}Price`, price, name.toLowerCase(), 'APT');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('apt', name, price, name.toLowerCase()));
     processArbitrage(prices, 'apt');
 }
 async function updatePricesOfFil() { // FIL/USDT Pair
@@ -324,10 +261,7 @@ async function updatePricesOfFil() { // FIL/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=FILUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=filusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`fil${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`fil${name}Price`, price, name.toLowerCase(), 'FIL');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('fil', name, price, name.toLowerCase()));
     processArbitrage(prices, 'fil');
 }
 async function updatePricesOfEtc() { // ETC/USDT Pair
@@ -338,10 +272,7 @@ async function updatePricesOfEtc() { // ETC/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=ETCUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=etcusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`etc${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`etc${name}Price`, price, name.toLowerCase(), 'ETC');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('etc', name, price, name.toLowerCase()));
     processArbitrage(prices, 'etc');
 }
 async function updatePricesOfAtom() { // ATOM/USDT Pair
@@ -352,10 +283,7 @@ async function updatePricesOfAtom() { // ATOM/USDT Pair
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=ATOMUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=atomusdt', 'htx') }
     ];
-    prices.forEach(({ name, price }) => {
-        document.getElementById(`atom${name}Price`).textContent = `${name}: $${price.toFixed(2)}`;
-        flashBackground(`atom${name}Price`, price, name.toLowerCase(), 'ATOM');
-    });
+    prices.forEach(({ name, price }) => updatePriceDisplay('atom', name, price, name.toLowerCase()));
     processArbitrage(prices, 'atom');
 }
 function processArbitrage(prices, crypto) { // prepares the info that is sent into updateArbitrage
@@ -396,7 +324,22 @@ function startPriceUpdates() { // Update the prices
         setInterval(func, 33000);
     });
 }
-function flashBackground(elementId, newPrice, exchange, symbol) { // When price updates, flash colour and save the last prices
+function updatePriceDisplay(cryptoName, name, price, exchange) { // Updates the price boxes and than calls flashBackground
+    let decimalPlaces;
+    if (price >= 250) {
+        decimalPlaces = 0;
+    } else if (price >= 50) {
+        decimalPlaces = 1;
+    } else if (price > 0.99) {
+        decimalPlaces = 2;
+    } else {
+        decimalPlaces = 3;
+    }
+    const elementId = `${cryptoName}${name}Price`;
+    document.getElementById(elementId).textContent = `${name}: $${price.toFixed(decimalPlaces)}`;
+    flashBackground(elementId, price, exchange, cryptoName.toUpperCase());
+}
+function flashBackground(elementId, newPrice, exchange, symbol) { // if prices are new, flash the backgrounds, than save the lastPrices
     const lastPrice = lastPrices[exchange][symbol];
     if (lastPrice !== undefined && lastPrice !== newPrice) {
         const element = document.getElementById(elementId);
