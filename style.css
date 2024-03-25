@@ -1,6 +1,8 @@
-@media(min-width: 768px) { /* Input Email box */
-    .news-input {
+@media(min-width: 768px) { /* Input Email form */
+    .email-form {
         width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -17,6 +19,15 @@
     padding: 20px;
     border-radius: 44px;
     max-width: 315px;
+    position: relative;
+}
+
+.crypto-logo { /* The crypto logos in the price boxes */
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    width: 30px;
+    height: auto;
 }
 
 .prices-container p { /* The paragraphs inside the pairs boxes */
@@ -27,7 +38,7 @@
 }
 
 .prices-container p[id$="Price"] { /* Specifily the price boxes of the pairs */
-    background-color: #94f5a1;
+    background-color: #c9fdcf;
     border: 2px solid #000000;
     padding: 10px;
     margin-bottom: 10px;
