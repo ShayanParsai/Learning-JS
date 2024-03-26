@@ -432,7 +432,7 @@ function updateArbitrage(elementId, price1, price2, exchange1, exchange2) { // C
 
     if (Math.abs(percentDifference) > 0.99) {
         arbitrageElement.style.backgroundColor = '#00ff22';
-    } else if (Math.abs(percentDifference) >= 0.40 && Math.abs(percentDifference) <= 0.99) {
+    } else if (Math.abs(percentDifference) >= 0.50 && Math.abs(percentDifference) <= 0.99) {
         arbitrageElement.style.backgroundColor = 'orange';
     } else {
         arbitrageElement.style.backgroundColor = 'white';
