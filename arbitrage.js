@@ -342,7 +342,6 @@ async function updatePricesOfWif() { // WIF/USDT Pair
     const prices = [
         { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=WIFUSDT', 'binance') },
         { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=WIFUSD', 'kraken') },
-        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/WIF-USDT/spot', 'coinbase') },
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=WIFUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=wifusdt', 'htx') }
     ];
@@ -393,6 +392,140 @@ async function updatePricesOfTia() { // TIA/USDT Pair
     prices.forEach(({ name, price }) => updatePriceDisplay('tia', name, price, name.toLowerCase()));
     processArbitrage(prices, 'tia');
 }
+async function updatePricesOfFet() { // FET/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=FETUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=FETUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/FET-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=FETUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=fetusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('fet', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'fet');
+}
+async function updatePricesOfSui() { // SUI/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=SUIUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=SUIUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/SUI-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=SUIUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=suiusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('sui', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'sui');
+}
+async function updatePricesOfAlgo() { // ALGO/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=ALGOUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=ALGOUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/ALGO-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=ALGOUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=algousdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('algo', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'algo');
+}
+async function updatePricesOfSei() { // SEI/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=SEIUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=SEIUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/SEI-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=SEIUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=seiusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('sei', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'sei');
+}
+async function updatePricesOfFlow() { // FLOW/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=FLOWUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=FLOWUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/FLOW-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=FLOWUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=flowusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('flow', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'flow');
+}
+async function updatePricesOfGala() { // GALA/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=GALAUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=GALAUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/GALA-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=GALAUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=galausdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('gala', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'gala');
+}
+async function updatePricesOfAave() { // AAVE/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=AAVEUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=AAVEUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/AAVE-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=AAVEUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=aaveusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('aave', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'aave');
+}
+async function updatePricesOfQnt() { // QNT/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=QNTUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=QNTUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/QNT-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=QNTUSDT', 'bybit') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('qnt', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'qnt');
+}
+async function updatePricesofEgld() { // EGLD/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=EGLDUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=EGLDUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/EGLD-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=EGLDUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=egldusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('egld', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'egld');
+}
+async function updatePricesofDydx() { // DYDX/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=DYDXUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=DYDXUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/DYDX-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=DYDXUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=dydxusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('dydx', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'dydx');
+}
+async function updatePricesofStrk() { // STRK/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=STRKUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=STRKUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/STRK-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=STRKUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=strkusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('strk', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'strk');
+}
+async function updatePricesofSnx() { // SNX/USDT Pair
+    const prices = [
+        { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=SNXUSDT', 'binance') },
+        { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=SNXUSD', 'kraken') },
+        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/SNX-USDT/spot', 'coinbase') },
+        { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=SNXUSDT', 'bybit') },
+        { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=snxusdt', 'htx') }
+    ];
+    prices.forEach(({ name, price }) => updatePriceDisplay('snx', name, price, name.toLowerCase()));
+    processArbitrage(prices, 'snx');
+}
+
+// CRYPTO PAIRS ABOVE^
+
 async function fetchPrice(url, exchange) { // Fetch the prices from the API URLs
     try {
         const response = await fetch(url);
@@ -432,7 +565,7 @@ function updateArbitrage(elementId, price1, price2, exchange1, exchange2) { // C
 
     if (Math.abs(percentDifference) > 0.99) {
         arbitrageElement.style.backgroundColor = '#00ff22';
-    } else if (Math.abs(percentDifference) >= 0.40 && Math.abs(percentDifference) <= 0.99) {
+    } else if (Math.abs(percentDifference) >= 0.49 && Math.abs(percentDifference) <= 0.99) {
         arbitrageElement.style.backgroundColor = 'orange';
     } else {
         arbitrageElement.style.backgroundColor = 'white';
@@ -451,7 +584,11 @@ function startPriceUpdates() { // Update the prices
         updatePricesOfArb, updatePricesOfImx, updatePricesOfRndr,
         updatePricesOfGrt, updatePricesOfOp, updatePricesOfInj, 
         updatePricesOfRune, updatePricesOfWif, updatePricesOfFtm,
-        updatePricesOfMkr, updatePricesOfLdo, updatePricesOfTia
+        updatePricesOfMkr, updatePricesOfLdo, updatePricesOfTia,
+        updatePricesOfFet, updatePricesOfSui, updatePricesOfAlgo,
+        updatePricesOfSei, updatePricesOfFlow, updatePricesOfGala,
+        updatePricesOfAave, updatePricesOfQnt, updatePricesofEgld,
+        updatePricesofDydx, updatePricesofStrk, updatePricesofSnx
     ];
 
     updateFunctions.forEach(func => {
@@ -468,7 +605,7 @@ function updatePriceDisplay(cryptoName, name, price, exchange) { // Updates the 
     } else if (price > 0.99) {
         decimalPlaces = 2;
     } else {
-        decimalPlaces = 3;
+        decimalPlaces = 4;
     }
     const elementId = `${cryptoName}${name}Price`;
     document.getElementById(elementId).textContent = `${name}: $${price.toFixed(decimalPlaces)}`;
