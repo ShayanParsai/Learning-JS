@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() { // 'Start Tracking' b
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() { // 'Hide prices' button
+document.addEventListener('DOMContentLoaded', function() { // 'Hide all prices' button
     const togglePricesBtn = document.getElementById('togglePricesBtn'); 
 
     togglePricesBtn.addEventListener('click', function() {
@@ -23,21 +23,21 @@ document.addEventListener('DOMContentLoaded', function() { // 'Hide prices' butt
         priceElements.forEach(function(element) {
             if (element.style.display === 'none') {
                 element.style.display = '';
-                togglePricesBtn.textContent = 'Hide prices';
+                togglePricesBtn.textContent = 'Hide all prices';
             } else {
                 element.style.display = 'none';
-                togglePricesBtn.textContent = 'Show prices';
+                togglePricesBtn.textContent = 'Show all prices';
             }
         });
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // 'Show best deals' button
     const toggleBadDealsBtn = document.getElementById('toggleBadDeals');
     let filterInterval;
     toggleBadDealsBtn.addEventListener('click', function() {
         const filterDivs = document.querySelectorAll('[id^="filter"]');
-        let isHidingBadDeals = toggleBadDealsBtn.textContent.includes('Show good deals');
+        let isHidingBadDeals = toggleBadDealsBtn.textContent.includes('Show best deals');
         const applyFilter = () => {
             filterDivs.forEach(div => {
                 const arbitrageElement = div.querySelector('p[id$="Arbitrage"]');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleBadDealsBtn.textContent = 'Show all deals';
             filterInterval = setInterval(applyFilter, 2500); // Apply filter each 2.5 seconds while button is clicked
         } else {
-            toggleBadDealsBtn.textContent = 'Show good deals';
+            toggleBadDealsBtn.textContent = 'Show best deals';
             clearInterval(filterInterval);
         }
     });
