@@ -1,0 +1,25 @@
+@media(min-width: 768px) { /* Desktop screens */
+    .email-form { /* Input Email form */
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mobile-text { /* Hide the "Twitter" text on larger screens */
+        display: none;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile screens */ 
+    .crypto-address { /* Support me crypto adresses */
+        word-break: break-all;
+        white-space: pre-wrap; 
+    }
+    .desktop-text { /* Hide the long text on mobile */
+        display: none;
+    }
+    #hideButtonsDiv button { /* Make buttons stack vertically on mobile */
+        display: inline-block; 
+        margin-bottom: 8px; 
+        width: 58%; /
+    }
+}

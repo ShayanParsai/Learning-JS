@@ -436,6 +436,9 @@ async function updatePricesOfSei() { // SEI/USDT Pair
     prices.forEach(({ name, price }) => updatePriceDisplay('sei', name, price, name.toLowerCase()));
     processArbitrage(prices, 'sei');
 }
+
+// CRYPTO PAIRS ABOVE^
+
 async function fetchPrice(url, exchange) { // Fetch the prices from the API URLs
     try {
         const response = await fetch(url);
@@ -475,7 +478,7 @@ function updateArbitrage(elementId, price1, price2, exchange1, exchange2) { // C
 
     if (Math.abs(percentDifference) > 0.99) {
         arbitrageElement.style.backgroundColor = '#00ff22';
-    } else if (Math.abs(percentDifference) >= 0.50 && Math.abs(percentDifference) <= 0.99) {
+    } else if (Math.abs(percentDifference) >= 0.49 && Math.abs(percentDifference) <= 0.99) {
         arbitrageElement.style.backgroundColor = 'orange';
     } else {
         arbitrageElement.style.backgroundColor = 'white';
