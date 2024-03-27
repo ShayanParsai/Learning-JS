@@ -342,7 +342,6 @@ async function updatePricesOfWif() { // WIF/USDT Pair
     const prices = [
         { name: 'Binance', price: await fetchPrice('https://api.binance.com/api/v3/ticker/price?symbol=WIFUSDT', 'binance') },
         { name: 'Kraken', price: await fetchPrice('https://api.kraken.com/0/public/Ticker?pair=WIFUSD', 'kraken') },
-        { name: 'Coinbase', price: await fetchPrice('https://api.coinbase.com/v2/prices/WIF-USDT/spot', 'coinbase') },
         { name: 'Bybit', price: await fetchPrice('https://api.bybit.com/v2/public/tickers?symbol=WIFUSDT', 'bybit') },
         { name: 'Htx', price: await fetchPrice('https://api.huobi.pro/market/trade?symbol=wifusdt', 'htx') }
     ];
