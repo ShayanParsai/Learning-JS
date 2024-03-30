@@ -589,8 +589,6 @@ async function fetchPrice(url, exchange) { // Fetch the prices from the API URLs
                 return parseFloat(data.result[0].last_price);
             case 'htx':
                 return parseFloat(data.tick.data[0].price);
-            case 'bitfinex':
-                return parseFloat(data[6]);
             default:
                 console.log(`Exchange ${exchange} not supported.`);
         }
@@ -674,7 +672,6 @@ const lastPrices = { // Here is the saved last prices for the flashbackground
     kraken: {},
     coinbase: {},
     bybit: {},
-    htx: {},
-    bitfinex: {}
+    htx: {}
 } 
 startPriceUpdates();
